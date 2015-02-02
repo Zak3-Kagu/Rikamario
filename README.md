@@ -1,2 +1,2 @@
 # Rikamario
-Rikamaru beat down the Professor like Mario.
+Rikamaru beats down the Professor like Mario.
