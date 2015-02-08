@@ -1,8 +1,8 @@
 #ifndef _GAME_SCENE_H
 #define _GAME_SCENE_H
 
-#define MAP_XSIZE 32
-#define MAP_YSIZE 24
+#define MAP_XSIZE 20
+#define MAP_YSIZE 15
 
 #include "SceneBase.h"
 #include "State.h"
