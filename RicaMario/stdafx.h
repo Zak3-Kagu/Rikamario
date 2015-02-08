@@ -1,0 +1,12 @@
+#include "DxLib.h"
+#include <math.h>
+#include <stdlib.h>
+#include <time.h>
+#include <list>
+#include <memory>
+#include <map>
+#include <string>
+#include <vector>
+#include <sstream>
+#include <fstream>
+#include <iostream>
