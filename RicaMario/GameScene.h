@@ -19,6 +19,9 @@ namespace scene{
 		std::unique_ptr<State<scene::Game>> now_state;
 
 		//ƒNƒ‰ƒX
+		class Init :public State < Game > {
+			
+		};
 
 	public:
 		Game();
