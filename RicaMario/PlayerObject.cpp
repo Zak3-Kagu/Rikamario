@@ -5,8 +5,8 @@ void Player::init(const std::unique_ptr<Root>& root, AssetContainer<asset::Textu
 }
 
 void Player::initPlayerSprite(const std::unique_ptr<Root>& root, AssetContainer<asset::Texture>& tex_container){
-	m_player.reset(new Sprite());
-	m_player->setTexture(tex_container.findAssetByname("Player"));
+	sp_player.reset(new Sprite());
+	sp_player->setTexture(tex_container.findAssetByname("Player"));
 }
 
 void Player::inputAction(const Controller& controller){
@@ -23,10 +23,10 @@ void Player::update(){
 }
 
 void Player::setDrawIn(const std::unique_ptr<Root>& root){
-	root->layers[1].push_back(m_player);
+	root->layers[1].push_back(sp_player);
 }
 void Player::setDrawOut(const std::unique_ptr<Root>& root){
-	root->layers[1].remove(m_player);
+	root->layers[1].remove(sp_player);
 }
 
 const int Player::getPosition(int& select)const{

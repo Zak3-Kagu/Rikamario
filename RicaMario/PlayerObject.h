@@ -18,7 +18,7 @@ private:
 	int m_y;
 
 	//プレイヤーのスプライト
-	std::shared_ptr<Sprite> m_player;
+	std::shared_ptr<Sprite> sp_player;
 public:
 	//初期化系
 	void init(const std::unique_ptr<Root>& root, AssetContainer<asset::Texture>& tex_container, AssetContainer<asset::Sound>& sound_container);

@@ -8,6 +8,7 @@
 #include "State.h"
 #include "Sprite.h"
 #include "TextureFactory.h"
+#include "PlayerObject.h"
 
 namespace scene{
 	class Game :public scene::Base{
@@ -17,10 +18,12 @@ namespace scene{
 
 		//ポインタ
 		std::unique_ptr<State<scene::Game>> now_state;
+		std::shared_ptr<Player> m_player;
 
 		//クラス
 		class Init :public State < Game > {
-			
+		public:
+			void update(Game& parent, std::unique_ptr<State<Game>>& new_state, const std::unique_ptr<Root>& root)override;
 		};
 
 	public:
