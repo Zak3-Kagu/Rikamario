@@ -6,9 +6,6 @@
 #include "SoundFactory.h"
 #include "Sprite.h"
 #include "Root.h"
-#include "AssetContainer.h"
-#include "Texture.h"
-#include "Sound.h"
 
 class Player:public component::OperableObject{
 private:
@@ -17,14 +14,33 @@ private:
 	int m_x;
 	int m_y;
 
+	int m_vx;
+	int m_vy;
+	int m_vx_max_walk;
+	int m_vx_max_dash;
+	int m_vy_max;
+
+	int m_ax;
+	int m_ay;
+
+	int m_timer_x;
+	int m_timer_y;
+
+	//各種フラグ
+	int m_jumpflag;
+	int m_dashflag;
+
 	//プレイヤーのスプライト
 	std::shared_ptr<Sprite> sp_player;
 public:
 	//初期化系
-	void init(const std::unique_ptr<Root>& root, AssetContainer<asset::Texture>& tex_container, AssetContainer<asset::Sound>& sound_container);
+	void init();
+
+	//load系
+	void loadTexture(const std::unique_ptr<Root>& root);
 
 	//プレイヤースプライトのセット
-	void initPlayerSprite(const std::unique_ptr<Root>& root, AssetContainer<asset::Texture>& tex_container);
+	void setPlayerSprite(const std::unique_ptr<Root>& root);
 
 	//更新系
 	void inputAction(const Controller& controller)override;
@@ -39,5 +55,9 @@ public:
 	const int getPosition(int& select)const;
 
 	void setPosition(const int& select, const int& arg);
+
+	const int getFlag(int& select)const;
+
+	void setFlag(const int& select, const int& arg);
 };
 #endif 

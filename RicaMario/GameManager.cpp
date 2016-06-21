@@ -3,25 +3,21 @@
 //#define DEBUG
 
 int GameManager::update(){
-	
+	fps_mgr->wait();
+	fps_mgr->update();
 	if (ProcessMessage() != 0){
 		return -1;
 	}
-	fps_mgr->update();
+	// ゲームの更新処理を書く
+	now_scene->update(now_scene, root);
+	for (const auto& obj : root->update_list){
+		obj->update();
+	}
+	// InputManagerを実行
+	root->input_mgr.exec();
 	if (now_scene == nullptr){
-		fps_mgr->wait();
 		return -1;
 	}
-	else{
-		// InputManagerを実行
-		root->input_mgr.exec();
-		// ゲームの更新処理を書く
-		now_scene->update(now_scene, root);
-		for (const auto& obj : root->update_list){
-			obj->update();
-		}
-	}
-	fps_mgr->wait();
 	return 0;
 }
 
@@ -44,7 +40,7 @@ int GameManager::draw() const{
 int GameManager::initialize(){
 	ChangeWindowMode(TRUE);//ウィンドウモード
 	if (DxLib_Init() == -1 || SetDrawScreen(DX_SCREEN_BACK) != 0) return -1;//初期化と裏画面化
-	SetWindowText("ＳＲＰＧ作成中");
+	SetWindowText("ＲｉｋａＭａｒｉｏ");
 	SetTransColor(0, 0, 0); //指定した色を透明色とする
 	SetDrawBright(0,0,0);//輝度を0にセット
 	root->input_mgr.push_back(root->controller_factory.find(1));
