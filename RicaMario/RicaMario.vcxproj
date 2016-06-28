@@ -14,6 +14,7 @@
     <ProjectGuid>{A55D58A2-625F-4E9C-BBFC-D6EE3EE4B387}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>RicaMario</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -41,9 +42,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)..\..\Build\$(SolutionName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\..\Build\$(SolutionName)\Temp\$(ProjectName)$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)..\..\Build\$(SolutionName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\..\Build\$(SolutionName)\Temp\$(ProjectName)$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
