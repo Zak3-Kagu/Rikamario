@@ -39,6 +39,7 @@ int GameManager::draw() const{
 
 int GameManager::initialize(){
 	ChangeWindowMode(TRUE);//ウィンドウモード
+	SetOutApplicationLogValidFlag(FALSE);//ログを表示させない
 	if (DxLib_Init() == -1 || SetDrawScreen(DX_SCREEN_BACK) != 0) return -1;//初期化と裏画面化
 	SetWindowText("ＲｉｋａＭａｒｉｏ");
 	SetTransColor(0, 0, 0); //指定した色を透明色とする
